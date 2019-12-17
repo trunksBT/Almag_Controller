@@ -5,7 +5,8 @@
 class LinkEstablishment : public HDLCCommand
 {
 public:
-   LinkEstablishment(IHDLCCommunicatorPtr hdlcCommunicator, Strings userInput);
+   LinkEstablishment(IHDLCFrameBodyFactoryPtr frameBodyFactoryPtr,
+           IHDLCCommunicatorPtr hdlcCommunicator, Strings userInput);
    virtual ~LinkEstablishment() = default;
 
    virtual void execute() override;

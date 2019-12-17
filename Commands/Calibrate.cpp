@@ -12,8 +12,9 @@ namespace
 constexpr int IDX_OF_ADDRESS = 1;
 }
 
-Calibrate::Calibrate(IHDLCCommunicatorPtr hdlcCommunicator, Strings userInput)
-   : HDLCCommand(hdlcCommunicator, userInput)
+Calibrate::Calibrate(IHDLCFrameBodyFactoryPtr frameBodyFactoryPtr,
+        IHDLCCommunicatorPtr hdlcCommunicator, Strings userInput)
+   : HDLCCommand(frameBodyFactoryPtr, hdlcCommunicator, userInput)
 {
    LOG(trace);
 }

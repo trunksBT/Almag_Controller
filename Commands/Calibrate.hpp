@@ -5,7 +5,8 @@
 class Calibrate : public HDLCCommand
 {
 public:
-   Calibrate(IHDLCCommunicatorPtr hdlcCommunicator, Strings userInput);
+   Calibrate(IHDLCFrameBodyFactoryPtr frameBodyFactoryPtr,
+           IHDLCCommunicatorPtr hdlcCommunicator, Strings userInput);
    virtual ~Calibrate() = default;
 
    virtual void execute() override;

@@ -13,8 +13,9 @@ namespace
 constexpr int IDX_OF_ADDRESS = 1;
 }
 
-AddressAssignment::AddressAssignment(IHDLCCommunicatorPtr hdlcCommunicator, Strings userInput)
-   : HDLCCommand(hdlcCommunicator, userInput)
+AddressAssignment::AddressAssignment(IHDLCFrameBodyFactoryPtr frameBodyFactoryPtr,
+        IHDLCCommunicatorPtr hdlcCommunicator, Strings userInput)
+   : HDLCCommand(frameBodyFactoryPtr, hdlcCommunicator, userInput)
 {
    LOG(trace);
 }

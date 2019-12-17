@@ -15,8 +15,9 @@ namespace
 constexpr int IDX_OF_ADDRESS = 1;
 }
 
-HDLCParameters::HDLCParameters(IHDLCCommunicatorPtr hdlcCommunicator, Strings userInput)
-        : HDLCCommand(hdlcCommunicator, userInput)
+HDLCParameters::HDLCParameters(IHDLCFrameBodyFactoryPtr frameBodyFactoryPtr,
+   IHDLCCommunicatorPtr hdlcCommunicator, Strings userInput)
+: HDLCCommand(frameBodyFactoryPtr, hdlcCommunicator, userInput)
 {
    LOG(trace);
 }

@@ -5,7 +5,8 @@
 class ThreeGPPReleaseID : public HDLCCommand
 {
 public:
-   ThreeGPPReleaseID(IHDLCCommunicatorPtr hdlcCommunicator, Strings userInput);
+   ThreeGPPReleaseID(IHDLCFrameBodyFactoryPtr frameBodyFactoryPtr,
+           IHDLCCommunicatorPtr hdlcCommunicator, Strings userInput);
    virtual ~ThreeGPPReleaseID() = default;
 
    virtual void execute() override;

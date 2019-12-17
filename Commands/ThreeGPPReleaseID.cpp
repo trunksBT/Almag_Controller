@@ -12,8 +12,9 @@ namespace
 constexpr int IDX_OF_ADDRESS = 1;
 }
 
-ThreeGPPReleaseID::ThreeGPPReleaseID(IHDLCCommunicatorPtr hdlcCommunicator, Strings userInput)
-   : HDLCCommand(hdlcCommunicator, userInput)
+ThreeGPPReleaseID::ThreeGPPReleaseID(IHDLCFrameBodyFactoryPtr frameBodyFactoryPtr,
+        IHDLCCommunicatorPtr hdlcCommunicator, Strings userInput)
+: HDLCCommand(frameBodyFactoryPtr, hdlcCommunicator, userInput)
 {
    LOG(trace);
 }

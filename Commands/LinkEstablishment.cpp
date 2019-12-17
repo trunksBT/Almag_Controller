@@ -12,9 +12,12 @@ namespace
 constexpr int IDX_OF_ADDRESS = 1;
 }
 
-LinkEstablishment::LinkEstablishment(IHDLCCommunicatorPtr hdlcCommunicator, Strings userInput)
-   : HDLCCommand(hdlcCommunicator, userInput)
-{}
+LinkEstablishment::LinkEstablishment(IHDLCFrameBodyFactoryPtr frameBodyFactoryPtr,
+        IHDLCCommunicatorPtr hdlcCommunicator, Strings userInput)
+: HDLCCommand(frameBodyFactoryPtr, hdlcCommunicator, userInput)
+{
+   LOG(trace);
+}
 
 void LinkEstablishment::execute()
 {

@@ -7,7 +7,8 @@ class IHDLCCommunicator;
 class AISGProtocolVersion : public HDLCCommand
 {
 public:
-   AISGProtocolVersion(IHDLCCommunicatorPtr hdlcCommunicator, Strings userInput);
+   AISGProtocolVersion(IHDLCFrameBodyFactoryPtr frameBodyFactoryPtr,
+           IHDLCCommunicatorPtr hdlcCommunicator, Strings userInput);
    virtual ~AISGProtocolVersion() = default;
 
    virtual void execute() override;

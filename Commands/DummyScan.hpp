@@ -5,7 +5,8 @@
 class DummyScan : public HDLCCommand
 {
 public:
-   DummyScan(IHDLCCommunicatorPtr hdlcCommunicator, Strings userInput, uint8_t numberOfExecutions);
+   DummyScan(IHDLCFrameBodyFactoryPtr frameBodyFactoryPtr,
+           IHDLCCommunicatorPtr hdlcCommunicator, Strings userInput, uint8_t numberOfExecutions);
    virtual ~DummyScan() = default;
 
    void execute() override;

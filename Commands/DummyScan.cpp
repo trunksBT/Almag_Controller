@@ -17,9 +17,9 @@ namespace
 constexpr int IDX_OF_ADDRESS = 1;
 }
 
-DummyScan::DummyScan(
+DummyScan::DummyScan(IHDLCFrameBodyFactoryPtr frameBodyFactoryPtr,
    IHDLCCommunicatorPtr hdlcCommunicator, Strings userInput, uint8_t numberOfExecutions)
-   : HDLCCommand(hdlcCommunicator, userInput)
+   : HDLCCommand(frameBodyFactoryPtr, hdlcCommunicator, userInput)
    , numberOfExecutions_(numberOfExecutions)
 {
    responseMessage_.reserve( 

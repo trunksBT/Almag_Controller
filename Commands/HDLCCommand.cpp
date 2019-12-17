@@ -1,16 +1,16 @@
 #include "HDLCCommand.hpp"
 #include <Utils/Logger.hpp>
-#include <PluginSpecifics/HDLCReqFrameBodyFactory.hpp>
 
 namespace
 {
 constexpr unsigned IDX_OF_ADDRESS=1;
 }
 
-HDLCCommand::HDLCCommand(IHDLCCommunicatorPtr hdlcCommunicator, Strings userInput)
-: hdlcCommunicator_(hdlcCommunicator)
+HDLCCommand::HDLCCommand(IHDLCFrameBodyFactoryPtr frameBodyFactoryPtr,
+   IHDLCCommunicatorPtr hdlcCommunicator, Strings userInput)
+: hdlcFrameBodyFactory_(frameBodyFactoryPtr)
+, hdlcCommunicator_(hdlcCommunicator)
 , validatedUserInput_(userInput)
-, hdlcFrameBodyFactory_(std::make_shared<HDLCReqFrameBodyFactory>())
 {
    LOG(trace);
    hdlcCommunicator_->setupReceive(validatedUserInput_[IDX_OF_ADDRESS]);

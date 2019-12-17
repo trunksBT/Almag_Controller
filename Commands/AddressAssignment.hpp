@@ -5,7 +5,8 @@
 class AddressAssignment : public HDLCCommand
 {
 public:
-   AddressAssignment(IHDLCCommunicatorPtr hdlcCommunicator, Strings userInput);
+   AddressAssignment(IHDLCFrameBodyFactoryPtr frameBodyFactoryPtr,
+      IHDLCCommunicatorPtr hdlcCommunicator, Strings userInput);
    virtual ~AddressAssignment() = default;
 
    virtual void execute() override;

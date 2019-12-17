@@ -5,7 +5,8 @@
 class HDLCParameters : public HDLCCommand
 {
 public:
-   HDLCParameters(IHDLCCommunicatorPtr hdlcCommunicator, Strings userInput);
+   HDLCParameters(IHDLCFrameBodyFactoryPtr frameBodyFactoryPtr,
+           IHDLCCommunicatorPtr hdlcCommunicator, Strings userInput);
    virtual ~HDLCParameters() = default;
 
    virtual void execute() override;

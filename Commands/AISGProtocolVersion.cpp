@@ -14,8 +14,9 @@ namespace
 constexpr int IDX_OF_ADDRESS = 1;
 }
 
-AISGProtocolVersion::AISGProtocolVersion(IHDLCCommunicatorPtr hdlcCommunicator, Strings userInput)
-   : HDLCCommand(hdlcCommunicator, userInput)
+AISGProtocolVersion::AISGProtocolVersion(IHDLCFrameBodyFactoryPtr frameBodyFactoryPtr,
+        IHDLCCommunicatorPtr hdlcCommunicator, Strings userInput)
+   : HDLCCommand(frameBodyFactoryPtr, hdlcCommunicator, userInput)
 {
    LOG(trace);
 }

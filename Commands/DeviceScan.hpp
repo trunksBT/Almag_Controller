@@ -5,7 +5,8 @@
 class DeviceScan : public HDLCCommand
 {
 public:
-   DeviceScan(IHDLCCommunicatorPtr hdlcCommunicator, Strings userInput);
+   DeviceScan(IHDLCFrameBodyFactoryPtr frameBodyFactoryPtr,
+           IHDLCCommunicatorPtr hdlcCommunicator, Strings userInput);
    virtual ~DeviceScan() = default;
 
    virtual void execute() override;
