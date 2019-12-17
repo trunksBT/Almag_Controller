@@ -1,7 +1,5 @@
 #include <Controller/Commands/AddressAssignment.hpp>
 
-#include <filesystem>
-
 #include <HDLC/IHDLCCommunicator.hpp>
 #include <HDLC/MessagesHelpers.hpp>
 #include <PluginSpecifics/CmdConstraints/AlmagConstraints.hpp>
