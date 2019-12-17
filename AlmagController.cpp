@@ -1,15 +1,12 @@
 #include "AlmagController.hpp"
 
 #include <Controller/ICommand.hpp>
-#include <PluginSpecifics/CmdConstraints/AlmagConstraints.hpp>
-#include <HDLC/IHDLCCommunicator.hpp>
 
 #include <Utils/Logger.hpp>
 #include <Utils/Utils.hpp>
 
 using namespace command;
 using namespace defaultVals;
-using namespace constraints::almag;
 
 AlmagController::AlmagController(Database& db, ICommandFactoryPtr commandFactory)
     : db_(db)

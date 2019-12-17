@@ -16,8 +16,6 @@
  * This class by design accepts only validated userInput
  */
 
-class IHDLCCommunicator;
-
 class AlmagController final: public IController
 {
 public:
@@ -40,5 +38,4 @@ private:
    std::list<std::shared_ptr<ICommand>> commands_;
    std::string finalResultCode_;
 };
-
 using AlmagControllerPtr = std::shared_ptr<AlmagController>;
