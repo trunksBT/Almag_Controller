@@ -13,8 +13,6 @@ HDLCCommand::HDLCCommand(IHDLCFrameBodyFactoryPtr frameBodyFactoryPtr,
 , validatedUserInput_(userInput)
 {
    LOG(trace);
-   hdlcCommunicator_->setupReceive(validatedUserInput_[IDX_OF_ADDRESS]);
-   hdlcCommunicator_->setupSend(validatedUserInput_[IDX_OF_ADDRESS]);
 }
 
 HDLCCommand::~HDLCCommand()
