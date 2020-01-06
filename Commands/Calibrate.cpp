@@ -34,9 +34,11 @@ HDLCFrameBodyPtr Calibrate::getFrameBody() const
 void Calibrate::executeImpl()
 {
    LOG(trace) << "BEGIN";
+   const auto address = validatedUserInput_[IDX_OF_ADDRESS];
+   LOG(debug) << address;
 
-   hdlcCommunicator_->send(validatedUserInput_[IDX_OF_ADDRESS],
-                           getFrameBody());
+   hdlcCommunicator_->send(address, getFrameBody());
+   hdlcCommunicator_->receive(address);
 
    LOG(trace) << "===============================================";
    LOG(trace) << "END";
