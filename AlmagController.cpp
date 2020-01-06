@@ -68,7 +68,7 @@ bool AlmagController::executeCommand()
 
 void AlmagController::executeNextCommand()
 {
-   if (not commands_.empty())
+   while (not commands_.empty())
    {
       commands_.pop_front();
       LOG(debug) << "Number of commands on queue " << commands_.size();
@@ -78,7 +78,7 @@ void AlmagController::executeNextCommand()
 
 void AlmagController::handleCommandsResult()
 {
-    if (not commands_.empty())
+    while (not commands_.empty())
     {
         const std::shared_ptr<ICommand> currentCommand = commands_.front();
         finalResultCode_ += currentCommand->handleResponse();

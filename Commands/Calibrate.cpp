@@ -5,6 +5,8 @@
 #include <Utils/Logger.hpp>
 #include <Utils/Utils.hpp>
 
+#include <thread>
+
 using namespace command;
 
 namespace
@@ -34,9 +36,12 @@ HDLCFrameBodyPtr Calibrate::getFrameBody() const
 void Calibrate::executeImpl()
 {
    LOG(trace) << "BEGIN";
+   const auto address = validatedUserInput_[IDX_OF_ADDRESS];
+   LOG(debug) << address;
 
-   hdlcCommunicator_->send(validatedUserInput_[IDX_OF_ADDRESS],
-                           getFrameBody());
+   std::this_thread::sleep_for(std::chrono::seconds(1));
+
+   hdlcCommunicator_->send(address, getFrameBody());
 
    LOG(trace) << "===============================================";
    LOG(trace) << "END";
