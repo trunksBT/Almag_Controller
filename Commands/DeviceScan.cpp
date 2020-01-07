@@ -38,7 +38,7 @@ void DeviceScan::executeImpl()
 {
    LOG(trace) << "BEGIN";
 
-   hdlcCommunicator_->send(validatedUserInput_[IDX_OF_ADDRESS],
+   hdlcCommunicator_->communicate(validatedUserInput_[IDX_OF_ADDRESS],
                            getFrameBody());
 
    LOG(trace) << "===============================================";

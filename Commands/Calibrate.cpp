@@ -41,7 +41,7 @@ void Calibrate::executeImpl()
 
    std::this_thread::sleep_for(std::chrono::seconds(1));
 
-   hdlcCommunicator_->send(address, getFrameBody());
+   hdlcCommunicator_->communicate(address, getFrameBody());
 
    LOG(trace) << "===============================================";
    LOG(trace) << "END";
