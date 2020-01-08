@@ -5,8 +5,6 @@
 #include <Utils/Logger.hpp>
 #include <Utils/Utils.hpp>
 
-#include <thread>
-
 using namespace command;
 
 namespace
