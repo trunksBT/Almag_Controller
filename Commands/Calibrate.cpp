@@ -39,8 +39,6 @@ void Calibrate::executeImpl()
    const auto address = validatedUserInput_[IDX_OF_ADDRESS];
    LOG(debug) << address;
 
-   std::this_thread::sleep_for(std::chrono::seconds(1));
-
    hdlcCommunicator_->communicate(address, getFrameBody());
 
    LOG(trace) << "===============================================";
