@@ -13,7 +13,7 @@ AlmagControllerNull::~AlmagControllerNull()
    LOG(debug);
 }
 
-void AlmagControllerNull::addCommands(StringsMatrix validatedUserInput)
+void AlmagControllerNull::addCommands(const StringsMatrix& validatedUserInput)
 {
    LOG(debug);
 }

@@ -26,10 +26,11 @@ std::string AlmagController::getFinalResultCode()
    return finalResultCode_;
 }
 
-void AlmagController::addCommand(Strings validatedUserInput)
+void AlmagController::addCommand(const Strings& validatedUserInput)
 {
    LOG(debug);
-   std::shared_ptr<ICommand> receivedCmd = commandFactory_->interpretAndCreateCommand(validatedUserInput);
+   std::shared_ptr<ICommand> receivedCmd{
+      commandFactory_->interpretAndCreateCommand(validatedUserInput) };
 
    if (receivedCmd)
    {
@@ -37,7 +38,7 @@ void AlmagController::addCommand(Strings validatedUserInput)
    }
 }
 
-void AlmagController::addCommands(StringsMatrix validatedUserInputs)
+void AlmagController::addCommands(const StringsMatrix& validatedUserInputs)
 {
    for (const auto& validatedUserInput : validatedUserInputs)
    {
@@ -45,7 +46,7 @@ void AlmagController::addCommands(StringsMatrix validatedUserInputs)
    }
 }
 
-void AlmagController::addCommands(std::vector<std::shared_ptr<ICommand>> inCommands)
+void AlmagController::addCommands(const std::vector<std::shared_ptr<ICommand>>& inCommands)
 {
     for (const auto& inCommand : inCommands)
     {

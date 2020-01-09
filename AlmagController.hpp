@@ -22,14 +22,14 @@ public:
    AlmagController(Database& db, ICommandFactoryPtr commandFactory);
    virtual ~AlmagController();
 
-   void addCommands(StringsMatrix validatedUserInput) final override;
+   void addCommands(const StringsMatrix& validatedUserInput) final override;
    bool executeCommand() final override;
    void handleCommandsResult() final override;
    std::string getFinalResultCode() final override;
 
 private:
-   void addCommands(std::vector<std::shared_ptr<ICommand>> inCommand);
-   void addCommand(Strings validatedUserInput);
+   void addCommands(const std::vector<std::shared_ptr<ICommand>>& inCommand);
+   void addCommand(const Strings& validatedUserInput);
 
    void executeNextCommand();
 
