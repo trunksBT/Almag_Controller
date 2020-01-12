@@ -6,6 +6,7 @@
 #include <Utils/Utils.hpp>
 
 using namespace command;
+using namespace defaultVals;
 
 LinkEstablishment::LinkEstablishment(IHDLCFrameBodyFactoryPtr frameBodyFactoryPtr,
         IHDLCCommunicatorPtr hdlcCommunicator, Strings userInput)
@@ -28,17 +29,16 @@ HDLCFrameBodyPtr LinkEstablishment::getFrameBody() const
 
 void LinkEstablishment::executeImpl()
 {
-   LOG(trace) << "BEGIN";
+   LOG(trace) << BEGIN;
 
    hdlcCommunicator_->communicate(validatedUserInput_[IDX_OF_ADDRESS_],
                            getFrameBody());
 
-   LOG(trace) << "===============================================";
-   LOG(trace) << "END";
+   LOG(trace) << MESSAGES_SEPARATOR;
+   LOG(trace) << END;
 }
 
 std::string LinkEstablishment::handleResponse()
 {
    return constraints::almag::L2::LINK_ESTABLISHMENT + DELIMITER;
 }
-

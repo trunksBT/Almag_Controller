@@ -11,6 +11,7 @@
 
 using namespace std::chrono_literals;
 using namespace command;
+using namespace defaultVals;
 
 DummyScan::DummyScan(IHDLCFrameBodyFactoryPtr frameBodyFactoryPtr,
    IHDLCCommunicatorPtr hdlcCommunicator, Strings userInput, uint8_t numberOfExecutions)
@@ -35,9 +36,9 @@ HDLCFrameBodyPtr DummyScan::getFrameBody() const
 
 void DummyScan::executeImpl()
 {
-   LOG(trace) << "BEGIN";
+   LOG(trace) << BEGIN;
 
-   hdlcCommunicator_->setupSend(validatedUserInput_[IDX_OF_ADDRESS]);
+   hdlcCommunicator_->setupSend(validatedUserInput_[IDX_OF_ADDRESS_]);
    for (int i = 0; i<numberOfExecutions_; i++)
    {
       hdlcCommunicator_->send(validatedUserInput_[IDX_OF_ADDRESS_],
@@ -49,11 +50,11 @@ void DummyScan::executeImpl()
       {
          std::this_thread::sleep_for(300ms);
       }
-      LOG(trace) << "===============================================";
+      LOG(trace) << MESSAGES_SEPARATOR;
       // I know what cpprefference says but we will see and conditionally fix it lazy
    }
 
-   LOG(trace) << "END";
+   LOG(trace) << END;
 }
 
 std::string DummyScan::handleResponse()

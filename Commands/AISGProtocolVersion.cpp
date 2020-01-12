@@ -8,6 +8,7 @@
 #include <Utils/Utils.hpp>
 
 using namespace command;
+using namespace defaultVals;
 
 AISGProtocolVersion::AISGProtocolVersion(IHDLCFrameBodyFactoryPtr frameBodyFactoryPtr,
         IHDLCCommunicatorPtr hdlcCommunicator, Strings userInput)
@@ -30,17 +31,16 @@ HDLCFrameBodyPtr AISGProtocolVersion::getFrameBody() const
 
 void AISGProtocolVersion::executeImpl()
 {
-   LOG(trace) << "BEGIN";
+   LOG(trace) << BEGIN;
 
    hdlcCommunicator_->communicate(validatedUserInput_[IDX_OF_ADDRESS_],
                            getFrameBody());
 
-   LOG(trace) << "===============================================";
-   LOG(trace) << "END";
+   LOG(trace) << MESSAGES_SEPARATOR;
+   LOG(trace) << END;
 }
 
 std::string AISGProtocolVersion::handleResponse()
 {
    return constraints::almag::L2::AISG_PROTOCOL_VERSION + DELIMITER;
 }
-

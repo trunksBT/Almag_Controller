@@ -9,6 +9,7 @@
 #include <Utils/Utils.hpp>
 
 using namespace command;
+using namespace defaultVals;
 
 DeviceScan::DeviceScan(IHDLCFrameBodyFactoryPtr frameBodyFactoryPtr,
         IHDLCCommunicatorPtr hdlcCommunicator, Strings userInput)
@@ -31,17 +32,16 @@ HDLCFrameBodyPtr DeviceScan::getFrameBody() const
 
 void DeviceScan::executeImpl()
 {
-   LOG(trace) << "BEGIN";
+   LOG(trace) << BEGIN;
 
    hdlcCommunicator_->communicate(validatedUserInput_[IDX_OF_ADDRESS_],
                            getFrameBody());
 
-   LOG(trace) << "===============================================";
-   LOG(trace) << "END";
+   LOG(trace) << MESSAGES_SEPARATOR;
+   LOG(trace) << END;
 }
 
 std::string DeviceScan::handleResponse()
 {
    return constraints::almag::L2::DEVICE_SCAN + DELIMITER;
 }
-

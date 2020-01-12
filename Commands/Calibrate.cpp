@@ -6,6 +6,7 @@
 #include <Utils/Utils.hpp>
 
 using namespace command;
+using namespace defaultVals;
 
 Calibrate::Calibrate(IHDLCFrameBodyFactoryPtr frameBodyFactoryPtr,
         IHDLCCommunicatorPtr hdlcCommunicator, Strings userInput)
@@ -28,18 +29,17 @@ HDLCFrameBodyPtr Calibrate::getFrameBody() const
 
 void Calibrate::executeImpl()
 {
-   LOG(trace) << "BEGIN";
+   LOG(trace) << BEGIN;
    const auto address = validatedUserInput_[IDX_OF_ADDRESS_];
    LOG(debug) << address;
 
    hdlcCommunicator_->communicate(address, getFrameBody());
 
-   LOG(trace) << "===============================================";
-   LOG(trace) << "END";
+   LOG(trace) << MESSAGES_SEPARATOR;
+   LOG(trace) << END;
 }
 
 std::string Calibrate::handleResponse()
 {
    return constraints::almag::L7::CALIBRATE + DELIMITER;
 }
-

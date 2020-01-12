@@ -6,6 +6,7 @@
 #include <Utils/Utils.hpp>
 
 using namespace command;
+using namespace defaultVals;
 
 ThreeGPPReleaseID::ThreeGPPReleaseID(IHDLCFrameBodyFactoryPtr frameBodyFactoryPtr,
         IHDLCCommunicatorPtr hdlcCommunicator, Strings userInput)
@@ -28,13 +29,13 @@ HDLCFrameBodyPtr ThreeGPPReleaseID::getFrameBody() const
 
 void ThreeGPPReleaseID::executeImpl()
 {
-   LOG(trace) << "BEGIN";
+   LOG(trace) << BEGIN;
 
    hdlcCommunicator_->communicate(validatedUserInput_[IDX_OF_ADDRESS_],
                            getFrameBody());
 
-   LOG(trace) << "===============================================";
-   LOG(trace) << "END";
+   LOG(trace) << MESSAGES_SEPARATOR;
+   LOG(trace) << END;
 }
 
 std::string ThreeGPPReleaseID::handleResponse()

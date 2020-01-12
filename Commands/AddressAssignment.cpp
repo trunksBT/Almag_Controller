@@ -7,6 +7,7 @@
 #include <Utils/Utils.hpp>
 
 using namespace command;
+using namespace defaultVals;
 
 AddressAssignment::AddressAssignment(IHDLCFrameBodyFactoryPtr frameBodyFactoryPtr,
         IHDLCCommunicatorPtr hdlcCommunicator, Strings userInput)
@@ -29,17 +30,16 @@ HDLCFrameBodyPtr AddressAssignment::getFrameBody() const
 
 void AddressAssignment::executeImpl()
 {
-   LOG(trace) << "BEGIN";
+   LOG(trace) << BEGIN;
 
    hdlcCommunicator_->communicate(validatedUserInput_[IDX_OF_ADDRESS_],
                            getFrameBody());
 
-   LOG(trace) << "===============================================";
-   LOG(trace) << "END";
+   LOG(trace) << MESSAGES_SEPARATOR;
+   LOG(trace) << END;
 }
 
 std::string AddressAssignment::handleResponse()
 {
    return constraints::almag::L2::ADDRESS_ASSIGNMENT + DELIMITER;
 }
-
