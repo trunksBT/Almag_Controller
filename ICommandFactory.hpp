@@ -1,7 +1,7 @@
 #pragma once
 
-#include <vector>
 #include <string>
+#include <vector>
 #include <Controller/ICommand.hpp>
 
 class ICommandFactory

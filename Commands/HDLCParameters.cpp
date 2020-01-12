@@ -1,7 +1,5 @@
 #include <Controller/Commands/HDLCParameters.hpp>
 
-#include <filesystem>
-
 #include <HDLC/IHDLCCommunicator.hpp>
 #include <HDLC/MessagesHelpers.hpp>
 #include <PluginSpecifics/CmdConstraints/AlmagConstraints.hpp>
@@ -9,11 +7,6 @@
 #include <Utils/Utils.hpp>
 
 using namespace command;
-
-namespace
-{
-constexpr int IDX_OF_ADDRESS = 1;
-}
 
 HDLCParameters::HDLCParameters(IHDLCFrameBodyFactoryPtr frameBodyFactoryPtr,
    IHDLCCommunicatorPtr hdlcCommunicator, Strings userInput)
@@ -38,7 +31,7 @@ void HDLCParameters::executeImpl()
 {
    LOG(trace) << "BEGIN";
 
-   hdlcCommunicator_->communicate(validatedUserInput_[IDX_OF_ADDRESS],
+   hdlcCommunicator_->communicate(validatedUserInput_[IDX_OF_ADDRESS_],
                            getFrameBody());
 
    LOG(trace) << "===============================================";

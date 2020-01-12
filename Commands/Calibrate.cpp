@@ -7,11 +7,6 @@
 
 using namespace command;
 
-namespace
-{
-constexpr int IDX_OF_ADDRESS = 1;
-}
-
 Calibrate::Calibrate(IHDLCFrameBodyFactoryPtr frameBodyFactoryPtr,
         IHDLCCommunicatorPtr hdlcCommunicator, Strings userInput)
    : HDLCCommand(frameBodyFactoryPtr, hdlcCommunicator, userInput)
@@ -34,7 +29,7 @@ HDLCFrameBodyPtr Calibrate::getFrameBody() const
 void Calibrate::executeImpl()
 {
    LOG(trace) << "BEGIN";
-   const auto address = validatedUserInput_[IDX_OF_ADDRESS];
+   const auto address = validatedUserInput_[IDX_OF_ADDRESS_];
    LOG(debug) << address;
 
    hdlcCommunicator_->communicate(address, getFrameBody());

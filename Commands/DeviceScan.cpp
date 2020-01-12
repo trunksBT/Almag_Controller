@@ -10,11 +10,6 @@
 
 using namespace command;
 
-namespace
-{
-constexpr int IDX_OF_ADDRESS = 1;
-}
-
 DeviceScan::DeviceScan(IHDLCFrameBodyFactoryPtr frameBodyFactoryPtr,
         IHDLCCommunicatorPtr hdlcCommunicator, Strings userInput)
 : HDLCCommand(frameBodyFactoryPtr, hdlcCommunicator, userInput)
@@ -38,7 +33,7 @@ void DeviceScan::executeImpl()
 {
    LOG(trace) << "BEGIN";
 
-   hdlcCommunicator_->communicate(validatedUserInput_[IDX_OF_ADDRESS],
+   hdlcCommunicator_->communicate(validatedUserInput_[IDX_OF_ADDRESS_],
                            getFrameBody());
 
    LOG(trace) << "===============================================";

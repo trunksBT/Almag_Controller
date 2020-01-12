@@ -12,11 +12,6 @@
 using namespace std::chrono_literals;
 using namespace command;
 
-namespace
-{
-constexpr int IDX_OF_ADDRESS = 1;
-}
-
 DummyScan::DummyScan(IHDLCFrameBodyFactoryPtr frameBodyFactoryPtr,
    IHDLCCommunicatorPtr hdlcCommunicator, Strings userInput, uint8_t numberOfExecutions)
    : HDLCCommand(frameBodyFactoryPtr, hdlcCommunicator, userInput)
@@ -45,7 +40,7 @@ void DummyScan::executeImpl()
    hdlcCommunicator_->setupSend(validatedUserInput_[IDX_OF_ADDRESS]);
    for (int i = 0; i<numberOfExecutions_; i++)
    {
-      hdlcCommunicator_->send(validatedUserInput_[IDX_OF_ADDRESS],
+      hdlcCommunicator_->send(validatedUserInput_[IDX_OF_ADDRESS_],
                               getFrameBody());
 
       responseMessage_ += constraints::almag::L1::DUMMY_SCAN + DELIMITER;

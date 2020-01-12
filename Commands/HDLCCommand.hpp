@@ -18,6 +18,7 @@ protected:
    IHDLCFrameBodyFactoryPtr hdlcFrameBodyFactory_;
    IHDLCCommunicatorPtr hdlcCommunicator_;
    Strings validatedUserInput_;
+   const int IDX_OF_ADDRESS_;
 };
 
 using HDLCCommandPtr = std::shared_ptr<HDLCCommand>;

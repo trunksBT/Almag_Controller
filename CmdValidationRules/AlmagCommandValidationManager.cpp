@@ -19,8 +19,8 @@ MaybeStrings AlmagCommandValidationManager::perform(const Strings& userInput)
    LOG(trace) << "BEGIN " << ALMAG_COMMAND_NAME;
 
    std::unique_ptr<ICommandValidationStrategy> validationStrategy_;
-   if (funs::anyOf(
-   {constraints::almag::values.begin(), constraints::almag::values.end()}, ALMAG_COMMAND_NAME))
+   if (funs::anyOf({
+      constraints::almag::values.begin(), constraints::almag::values.end()}, ALMAG_COMMAND_NAME))
    {
       validationStrategy_ = std::make_unique<DummyScanValidationStrategy>();
    }
