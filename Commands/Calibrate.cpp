@@ -1,7 +1,7 @@
 #include <Controller/Commands/Calibrate.hpp>
 #include <HDLC/IHDLCCommunicator.hpp>
 #include <HDLC/MessagesHelpers.hpp>
-#include <PluginSpecifics/CmdConstraints/AlmagConstraints.hpp>
+#include <PluginSpecifics/CmdConstraints/KorytkoMagConstraints.hpp>
 #include <Utils/Logger.hpp>
 #include <Utils/Utils.hpp>
 
@@ -41,5 +41,5 @@ void Calibrate::executeImpl()
 
 std::string Calibrate::handleResponse()
 {
-   return constraints::almag::L7::CALIBRATE + DELIMITER;
+   return constraints::korytkomag::L7::CALIBRATE + DELIMITER;
 }

@@ -1,4 +1,4 @@
-#include "AlmagController.hpp"
+#include "KorytkoMagController.hpp"
 
 #include <Controller/ICommand.hpp>
 
@@ -8,7 +8,7 @@
 using namespace command;
 using namespace defaultVals;
 
-AlmagController::AlmagController(Database& db, ICommandFactoryPtr commandFactory)
+KorytkoMagController::KorytkoMagController(Database& db, ICommandFactoryPtr commandFactory)
     : db_(db)
     , commandFactory_(commandFactory)
     , finalResultCode_("")
@@ -16,17 +16,17 @@ AlmagController::AlmagController(Database& db, ICommandFactoryPtr commandFactory
     LOG(trace);
 }
 
-AlmagController::~AlmagController()
+KorytkoMagController::~KorytkoMagController()
 {
     LOG(trace);
 }
 
-std::string AlmagController::getFinalResultCode()
+std::string KorytkoMagController::getFinalResultCode()
 {
    return finalResultCode_;
 }
 
-void AlmagController::addCommand(const Strings& validatedUserInput)
+void KorytkoMagController::addCommand(const Strings& validatedUserInput)
 {
    LOG(debug);
    std::shared_ptr<ICommand> receivedCmd{
@@ -38,7 +38,7 @@ void AlmagController::addCommand(const Strings& validatedUserInput)
    }
 }
 
-void AlmagController::addCommands(const StringsMatrix& validatedUserInputs)
+void KorytkoMagController::addCommands(const StringsMatrix& validatedUserInputs)
 {
    for (const auto& validatedUserInput : validatedUserInputs)
    {
@@ -46,7 +46,7 @@ void AlmagController::addCommands(const StringsMatrix& validatedUserInputs)
    }
 }
 
-void AlmagController::addCommands(const std::vector<std::shared_ptr<ICommand>>& inCommands)
+void KorytkoMagController::addCommands(const std::vector<std::shared_ptr<ICommand>>& inCommands)
 {
     for (const auto& inCommand : inCommands)
     {
@@ -57,7 +57,7 @@ void AlmagController::addCommands(const std::vector<std::shared_ptr<ICommand>>& 
     }
 }
 
-bool AlmagController::executeCommand()
+bool KorytkoMagController::executeCommand()
 {
     LOG(debug);
     if (not commands_.empty())
@@ -67,7 +67,7 @@ bool AlmagController::executeCommand()
     return true;
 }
 
-void AlmagController::executeNextCommand()
+void KorytkoMagController::executeNextCommand()
 {
    while (not commands_.empty())
    {
@@ -77,7 +77,7 @@ void AlmagController::executeNextCommand()
    }
 }
 
-void AlmagController::handleCommandsResult()
+void KorytkoMagController::handleCommandsResult()
 {
     while (not commands_.empty())
     {

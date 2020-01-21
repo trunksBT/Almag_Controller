@@ -1,30 +1,30 @@
-#include "AlmagCommandValidationManager.hpp"
+#include "KorytkoMagCommandValidationManager.hpp"
 #include <memory>
 #include <Controller/CmdValidationRules/ICommandValidationStrategy.hpp>
 #include <Controller/CmdValidationRules/DummyScanValidationStrategy.hpp>
 #include <Controller/CmdValidationRules/NullValidationStrategy.hpp>
-#include <PluginSpecifics/CmdConstraints/AlmagConstraints.hpp>
+#include <PluginSpecifics/CmdConstraints/KorytkoMagConstraints.hpp>
 #include <Utils/Utils.hpp>
 #include <Utils/Logger.hpp>
 #include <Utils/Functions.hpp>
 
-using namespace constraints::almag;
+using namespace constraints::korytkomag;
 
-AlmagCommandValidationManager::AlmagCommandValidationManager(Database& db)
+KorytkoMagCommandValidationManager::KorytkoMagCommandValidationManager(Database& db)
    : ICmdValidationManager{db} {}
 
-MaybeStrings AlmagCommandValidationManager::perform(const Strings& userInput)
+MaybeStrings KorytkoMagCommandValidationManager::perform(const Strings& userInput)
 {
-   const auto& ALMAG_COMMAND_NAME = userInput[idx::COMMAND_OR_ACTION_NAME];
-   LOG(trace) << "BEGIN " << ALMAG_COMMAND_NAME;
+   const auto& KORYTKOMAG_COMMAND_NAME = userInput[idx::COMMAND_OR_ACTION_NAME];
+   LOG(trace) << "BEGIN " << KORYTKOMAG_COMMAND_NAME;
 
    std::unique_ptr<ICommandValidationStrategy> validationStrategy_;
    if (funs::anyOf({
-      constraints::almag::values.begin(), constraints::almag::values.end()}, ALMAG_COMMAND_NAME))
+      constraints::korytkomag::values.begin(), constraints::korytkomag::values.end()}, KORYTKOMAG_COMMAND_NAME))
    {
       validationStrategy_ = std::make_unique<DummyScanValidationStrategy>();
    }
-   else if (command::START_POOLING == ALMAG_COMMAND_NAME)
+   else if (command::START_POOLING == KORYTKOMAG_COMMAND_NAME)
    {
       validationStrategy_ = std::make_unique<NullValidationStrategy>();
    }
@@ -35,7 +35,7 @@ MaybeStrings AlmagCommandValidationManager::perform(const Strings& userInput)
    }
    else
    {
-      LOG(warning) << "Unknown almag command " << ALMAG_COMMAND_NAME;
+      LOG(warning) << "Unknown korytkomag command " << KORYTKOMAG_COMMAND_NAME;
       return boost::none;
    }
 }

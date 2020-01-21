@@ -1,35 +1,35 @@
-#include "AlmagControllerNull.hpp"
+#include "KorytkoMagControllerNull.hpp"
 
 #include <Utils/Logger.hpp>
 #include <Utils/Utils.hpp>
 
-AlmagControllerNull::AlmagControllerNull()
+KorytkoMagControllerNull::KorytkoMagControllerNull()
 {
    LOG(debug);
 }
 
-AlmagControllerNull::~AlmagControllerNull()
+KorytkoMagControllerNull::~KorytkoMagControllerNull()
 {
    LOG(debug);
 }
 
-void AlmagControllerNull::addCommands(const StringsMatrix& validatedUserInput)
+void KorytkoMagControllerNull::addCommands(const StringsMatrix& validatedUserInput)
 {
    LOG(debug);
 }
 
-bool AlmagControllerNull::executeCommand()
+bool KorytkoMagControllerNull::executeCommand()
 {
    LOG(debug);
    return true;
 }
 
-void AlmagControllerNull::handleCommandsResult()
+void KorytkoMagControllerNull::handleCommandsResult()
 {
    LOG(debug);
 }
 
-std::string AlmagControllerNull::getFinalResultCode()
+std::string KorytkoMagControllerNull::getFinalResultCode()
 {
    return defaultVals::FOR_STRING;
 }

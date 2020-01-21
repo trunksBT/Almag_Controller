@@ -2,11 +2,11 @@
 
 #include <Controller/IController.hpp>
 
-class AlmagControllerNull : public IController
+class KorytkoMagControllerNull : public IController
 {
 public:
-   AlmagControllerNull();
-   virtual ~AlmagControllerNull();
+   KorytkoMagControllerNull();
+   virtual ~KorytkoMagControllerNull();
 
    void addCommands(const StringsMatrix& validatedUserInput) final override;
    bool executeCommand() final override;

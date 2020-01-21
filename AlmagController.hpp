@@ -16,11 +16,11 @@
  * This class by design accepts only validated userInput
  */
 
-class AlmagController final: public IController
+class KorytkoMagController final: public IController
 {
 public:
-   AlmagController(Database& db, ICommandFactoryPtr commandFactory);
-   virtual ~AlmagController();
+   KorytkoMagController(Database& db, ICommandFactoryPtr commandFactory);
+   virtual ~KorytkoMagController();
 
    void addCommands(const StringsMatrix& validatedUserInput) final override;
    bool executeCommand() final override;
@@ -38,4 +38,4 @@ private:
    std::list<std::shared_ptr<ICommand>> commands_;
    std::string finalResultCode_;
 };
-using AlmagControllerPtr = std::shared_ptr<AlmagController>;
+using KorytkoMagControllerPtr = std::shared_ptr<KorytkoMagController>;

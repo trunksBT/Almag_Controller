@@ -1,7 +1,7 @@
 #include "ThreeGPPReleaseID.hpp"
 #include <HDLC/IHDLCCommunicator.hpp>
 #include <HDLC/MessagesHelpers.hpp>
-#include <PluginSpecifics/CmdConstraints/AlmagConstraints.hpp>
+#include <PluginSpecifics/CmdConstraints/KorytkoMagConstraints.hpp>
 #include <Utils/Logger.hpp>
 #include <Utils/Utils.hpp>
 
@@ -40,5 +40,5 @@ void ThreeGPPReleaseID::executeImpl()
 
 std::string ThreeGPPReleaseID::handleResponse()
 {
-   return constraints::almag::L2::THREEGPP_RELEASE_ID + DELIMITER;
+   return constraints::korytkomag::L2::THREEGPP_RELEASE_ID + DELIMITER;
 }

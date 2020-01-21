@@ -5,7 +5,7 @@
 
 #include <HDLC/IHDLCCommunicator.hpp>
 #include <HDLC/MessagesHelpers.hpp>
-#include <PluginSpecifics/CmdConstraints/AlmagConstraints.hpp>
+#include <PluginSpecifics/CmdConstraints/KorytkoMagConstraints.hpp>
 #include <Utils/Logger.hpp>
 #include <Utils/Utils.hpp>
 
@@ -19,7 +19,7 @@ DummyScan::DummyScan(IHDLCFrameBodyFactoryPtr frameBodyFactoryPtr,
    , numberOfExecutions_(numberOfExecutions)
 {
    responseMessage_.reserve( 
-      (constraints::almag::L1::DUMMY_SCAN + DELIMITER).size() * numberOfExecutions_);
+      (constraints::korytkomag::L1::DUMMY_SCAN + DELIMITER).size() * numberOfExecutions_);
 }
 
 void DummyScan::execute()
@@ -44,7 +44,7 @@ void DummyScan::executeImpl()
       hdlcCommunicator_->send(validatedUserInput_[IDX_OF_ADDRESS_],
                               getFrameBody());
 
-      responseMessage_ += constraints::almag::L1::DUMMY_SCAN + DELIMITER;
+      responseMessage_ += constraints::korytkomag::L1::DUMMY_SCAN + DELIMITER;
 
       if (numberOfExecutions_ > 1)
       {

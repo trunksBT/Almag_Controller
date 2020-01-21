@@ -18,8 +18,8 @@ public:
 protected:
    ICommand();
 
-   using AlmagControllerInformer = boost::signals2::signal<void(void)>;
-   AlmagControllerInformer informControllerAboutResult_;
+   using KorytkoMagControllerInformer = boost::signals2::signal<void(void)>;
+   KorytkoMagControllerInformer informControllerAboutResult_;
 };
 
 using ICommandPtr = std::shared_ptr<ICommand>;

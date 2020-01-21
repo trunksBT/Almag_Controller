@@ -4,7 +4,7 @@
 
 #include <HDLC/IHDLCCommunicator.hpp>
 #include <HDLC/MessagesHelpers.hpp>
-#include <PluginSpecifics/CmdConstraints/AlmagConstraints.hpp>
+#include <PluginSpecifics/CmdConstraints/KorytkoMagConstraints.hpp>
 #include <Utils/Logger.hpp>
 #include <Utils/Utils.hpp>
 
@@ -43,5 +43,5 @@ void DeviceScan::executeImpl()
 
 std::string DeviceScan::handleResponse()
 {
-   return constraints::almag::L2::DEVICE_SCAN + DELIMITER;
+   return constraints::korytkomag::L2::DEVICE_SCAN + DELIMITER;
 }

@@ -14,4 +14,4 @@ public:
    virtual std::string getFinalResultCode() = 0;
 };
 
-using IAlmagControllerPtr = std::shared_ptr<IController>;
+using IKorytkoMagControllerPtr = std::shared_ptr<IController>;

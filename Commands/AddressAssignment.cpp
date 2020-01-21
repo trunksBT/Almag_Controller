@@ -2,7 +2,7 @@
 
 #include <HDLC/IHDLCCommunicator.hpp>
 #include <HDLC/MessagesHelpers.hpp>
-#include <PluginSpecifics/CmdConstraints/AlmagConstraints.hpp>
+#include <PluginSpecifics/CmdConstraints/KorytkoMagConstraints.hpp>
 #include <Utils/Logger.hpp>
 #include <Utils/Utils.hpp>
 
@@ -41,5 +41,5 @@ void AddressAssignment::executeImpl()
 
 std::string AddressAssignment::handleResponse()
 {
-   return constraints::almag::L2::ADDRESS_ASSIGNMENT + DELIMITER;
+   return constraints::korytkomag::L2::ADDRESS_ASSIGNMENT + DELIMITER;
 }

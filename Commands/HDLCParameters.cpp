@@ -2,7 +2,7 @@
 
 #include <HDLC/IHDLCCommunicator.hpp>
 #include <HDLC/MessagesHelpers.hpp>
-#include <PluginSpecifics/CmdConstraints/AlmagConstraints.hpp>
+#include <PluginSpecifics/CmdConstraints/KorytkoMagConstraints.hpp>
 #include <Utils/Logger.hpp>
 #include <Utils/Utils.hpp>
 
@@ -41,5 +41,5 @@ void HDLCParameters::executeImpl()
 
 std::string HDLCParameters::handleResponse()
 {
-   return constraints::almag::L2::HDLC_PARAMETERS + DELIMITER;
+   return constraints::korytkomag::L2::HDLC_PARAMETERS + DELIMITER;
 }

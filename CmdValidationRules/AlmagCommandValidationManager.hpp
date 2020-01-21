@@ -4,10 +4,10 @@
 #include <Utils/TypeAliases.hpp>
 #include "ICmdValidationManager.hpp"
 
-class AlmagCommandValidationManager final : public ICmdValidationManager
+class KorytkoMagCommandValidationManager final : public ICmdValidationManager
 {
 public:
-   explicit AlmagCommandValidationManager(Database& db);
-   virtual ~AlmagCommandValidationManager() = default;
+   explicit KorytkoMagCommandValidationManager(Database& db);
+   virtual ~KorytkoMagCommandValidationManager() = default;
    MaybeStrings perform(const Strings& userInput) override;
 };
