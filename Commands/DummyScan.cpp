@@ -38,7 +38,6 @@ void DummyScan::executeImpl()
 {
    LOG(trace) << BEGIN;
 
-   hdlcCommunicator_->setupSend(validatedUserInput_[IDX_OF_ADDRESS_]);
    for (int i = 0; i<numberOfExecutions_; i++)
    {
       hdlcCommunicator_->send(validatedUserInput_[IDX_OF_ADDRESS_],
